@@ -126,3 +126,36 @@ def decade_label(year):
         case _:
             return "старые"
 
+
+# ===== Этап 3. Циклы (задачи 6–8) =====
+
+
+def demo_skip_comedies(movies):
+    for movie in movies:
+        if "comedy" in movie["genres"]:
+            continue
+        print(movie["title"])
+
+
+def demo_first_masterpiece(movies):
+    i = 0
+    current_movie = None
+    while movies:
+        if movies[i]["rating"] > 9.0:
+            current_movie = movies[i]
+            break
+        i += 1
+    else:
+        return "Шедевров не найдено"
+
+    return current_movie["title"]
+
+
+def count_long_movies(movies, threshold=120):
+    count_long_movie = 0
+    for movie in movies:
+        if movie["duration_min"] > threshold:
+            count_long_movie += 1
+
+    return count_long_movie
+
