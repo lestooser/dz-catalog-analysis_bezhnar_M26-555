@@ -186,3 +186,16 @@ def format_report_line(movie):
         f'жанры: {", ".join(movie["genres"])}"'
     )
 
+
+# ===== Этап 5. Списки (задачи 12–13) =====
+
+
+def titles_sorted_by_rating(movies):
+    sorted_movies = sorted(movies, key=lambda x: x["rating"], reverse=True)
+    return [movie["title"] for movie in sorted_movies]
+
+
+def top_n_by_rating(movies, n=3):
+    sorted_movies = sorted(movies, key=lambda x: x["rating"], reverse=True)
+    return [(movie["title"], movie["rating"]) for movie in sorted_movies[:n]]
+
