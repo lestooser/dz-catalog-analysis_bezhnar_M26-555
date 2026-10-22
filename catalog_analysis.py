@@ -254,3 +254,16 @@ def genres_only_in_one(movies_a, movies_b):
     actors_in_movie_2 = all_genres(movies_b)
     return actors_in_movie_1 - actors_in_movie_2
 
+
+# ===== Этап 8. Итераторы и генераторы (задачи 20–21) =====
+
+
+def iter_high_rated(movies, min_rating=8.0):
+    for movie in movies:
+        if movie["rating"] > min_rating:
+            yield movie
+
+
+def total_duration_above_7(movies):
+    return sum(m["duration_min"] for m in movies if m["rating"] > 7)
+
