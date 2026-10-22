@@ -267,3 +267,25 @@ def iter_high_rated(movies, min_rating=8.0):
 def total_duration_above_7(movies):
     return sum(m["duration_min"] for m in movies if m["rating"] > 7)
 
+
+# ===== Этап 9. Итоговый отчёт (задача 22) =====
+
+
+def build_report(movies):
+    print("ОТЧЕТ ПО КАТАЛОГУ")
+
+    print(f"Средний рейтинг: {average_rating(movies)}")
+    print(f"Средний возраст фильмов: {catalog_age_stats(movies)[2]} лет")
+
+    print("\nТоп-3 фильма:")
+    top_movie = sorted(movies, key=lambda x: x["rating"], reverse=True)
+    for tier in top_movie[:3]:
+        print(f"    {format_report_line(tier)}")
+    print("\nФильмов по жанрам:")
+    for key, value in count_by_genre(movies).items():
+        print(f"    {key} — {value}")
+    print(f"Все жанры каталога: {', '.join(list(all_genres(movies)))}")
+
+
+if __name__ == "__main__":
+    build_report(movies)
