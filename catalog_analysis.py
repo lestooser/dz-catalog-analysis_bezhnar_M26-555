@@ -140,7 +140,7 @@ def demo_skip_comedies(movies):
 def demo_first_masterpiece(movies):
     i = 0
     current_movie = None
-    while movies:
+    while i < len(movies):
         if movies[i]["rating"] > 9.0:
             current_movie = movies[i]
             break
