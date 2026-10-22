@@ -159,3 +159,30 @@ def count_long_movies(movies, threshold=120):
 
     return count_long_movie
 
+
+# ===== Этап 4. Строки (задачи 9–11) =====
+
+
+def normalize_title(title):
+    words = str.split(title)  # задача 9
+
+    result_list = []
+
+    for word in words:
+        new_word = word[0].upper() + word[1:]
+        result_list.append(new_word)
+
+    return " ".join(result_list)
+
+
+def make_slug(title):
+    return title.replace(" ", "-").lower()
+
+
+def format_report_line(movie):
+    return (
+        f'"{movie["title"]}" ({movie["year"]}) — '
+        f"{movie['rating']}/10, {duration_in_hours(movie['duration_min'])}, "
+        f'жанры: {", ".join(movie["genres"])}"'
+    )
+
