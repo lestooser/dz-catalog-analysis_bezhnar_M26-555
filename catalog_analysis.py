@@ -105,3 +105,24 @@ def duration_in_hours(minutes):
 
     return f"{minutes // 60}ч {(minutes % 60)}м"
 
+
+# ===== Этап 2. Условия и match (задачи 4–5) =====
+
+
+def rating_tier(rating):
+    if rating >= 9:
+        return "шедевр"
+    elif rating >= 7:
+        return "хорошо"
+    return "средне" if rating >= 5 else "слабо"
+
+
+def decade_label(year):
+    match year:
+        case x if x >= 2020:
+            return "новые"
+        case x if 2015 <= x < 2020:
+            return "недавние"
+        case _:
+            return "старые"
+
