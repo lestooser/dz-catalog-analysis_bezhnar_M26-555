@@ -231,3 +231,26 @@ def movies_above_average(movies):
         movie["title"]: movie["rating"] for movie in movies if movie["rating"] > avg
     }
 
+
+# ===== Этап 7. Множества (задачи 17–19) =====
+
+
+def all_genres(movies):
+    result_set = set()
+    for movie in movies:
+        result_set |= set(movie["genres"])
+
+    return result_set
+
+
+def common_actors(movie1, movie2):
+    actors_in_movie_1 = set(movie1["actors"])
+    actors_in_movie_2 = set(movie2["actors"])
+    return actors_in_movie_1 & actors_in_movie_2
+
+
+def genres_only_in_one(movies_a, movies_b):
+    actors_in_movie_1 = all_genres(movies_a)
+    actors_in_movie_2 = all_genres(movies_b)
+    return actors_in_movie_1 - actors_in_movie_2
+
